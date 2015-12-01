@@ -1,0 +1,13 @@
+@CHARSET "UTF-8";
+
+dl { padding: 1em; }
+dt { float: left; clear: left; text-align: right; font-weight: bold; }
+dd { margin: 0em 0 0 0.5em; padding: 0 0 0em 0; }
+
+th { text-align: left; }
+.objref { margin: 0 0 0 0; padding: 0 0 0 0; }
+.string { margin: 0 0 0 0; padding: 0 0 0 0; height: 125%; overflow: scroll }
+.write-var { font-weight: bold; }
+.write-field { font-weight: bold; }
+.read-var { font-weight: bold; }
+.read-field { font-weight: bold; }

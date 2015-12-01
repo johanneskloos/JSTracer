@@ -1,0 +1,14 @@
+#! /bin/bash
+
+dir=${2:-${1%.js}}
+
+htmlfile=$(mktemp --suffix=".html")
+#trap 'rm $htmlfile' EXIT
+
+sed -e "s!/dev/null!$1!" <tracer.html >$htmlfile
+
+node src/js/commands/instrument.js \
+	--inlineIID --inlineSource --inlineJalangi -i \
+	--analysis tracer.js --outputDir $dir $htmlfile $1
+	
+mv $dir/$(basename $htmlfile) $dir/tracer.html
