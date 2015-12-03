@@ -39,17 +39,20 @@
 	function MyAnalysis(global) {
 		var facts = [];
 		var xhr_url = (sandbox.initParams["base"] || "http://localhost:8765") + "/facts";
+		var fact_timer = null;
 		
 		function send_facts() {
 			if (fact_timer != null) {
 				window.clearTimeout(fact_timer);
 			}
+			console.log("Sending XHR");
 			var xhr = new XMLHttpRequest();
 			xhr.open("POST", xhr_url, true);
 			xhr.send(JSON.stringify(facts));
 		}
 		
 		function fact() {
+			console.log("Pushing fact");
 			facts.push(arguments);
 			if (facts.length > 10) {
 				send_facts();
